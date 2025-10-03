@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/portfolio
+    username: yass
+    password: 2321
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+#      ddl-auto: create
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        connection:
+          characterEncoding: utf-8
+          CharSet: utf-8
+          useUnicode: true
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+application:
+  security:
+    jwt:
+      secret-key: sync-app-security-key-for-newer-security-spring-boot-3-app
+      expiration: 86400000 # 1DAY
+      refresh-token:
+        expiration: 604800000 # 7DAYS
+server:
+  servlet:
+    contextPath: /fin
+  port: 8081
+  use-forward-headers: true
+  tomcat:
+    protocol-header: X-Forwarded-App-Proto
+    port-header: X-Forwarded-App-Port
+    
+logging:
+  path: /Users/yass/portfolio
+  level:
+    org:
+      springframework:
+      web: INFO
