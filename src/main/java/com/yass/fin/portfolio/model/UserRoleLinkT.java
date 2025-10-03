@@ -13,6 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "user_role_link_t")
 public class UserRoleLinkT implements Serializable {
 	private static final long serialVersionUID = 1L;
 

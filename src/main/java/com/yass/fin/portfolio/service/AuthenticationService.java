@@ -43,7 +43,7 @@ public class AuthenticationService {
         var savedUser = repository.save(user);
         roleLinkRepository.save(UserRoleLinkT.builder()
                 .roleId(1)
-                .userId(savedUser.getUserId())
+                .userId(savedUser.getUserID())
                 .build());
         var jwtToken = jwtService.generateToken(user);
         var refreshToken = jwtService.generateRefreshToken(user);

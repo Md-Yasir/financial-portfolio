@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "user_role_t")
 public class UserRoleT implements Serializable {
 	private static final long serialVersionUID = 1L;
 

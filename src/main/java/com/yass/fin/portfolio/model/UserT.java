@@ -19,6 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "user_t")
 public class UserT implements UserDetails {
 
     private static final long serialVersionUID = 1L;
@@ -27,7 +28,7 @@ public class UserT implements UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     @SequenceGenerator(name = "user_seq", sequenceName = "user_t_seq", allocationSize = 1)
     @Column(name = "user_id")
-    private Integer userId;
+    private Integer userID;
 
     @Column(name = "first_name")
     private String firstName;
@@ -57,6 +58,9 @@ public class UserT implements UserDetails {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "userT")
     private List<UserRoleLinkT> userRoleLinkTs;
 
+    @OneToMany(mappedBy="userT")
+    private List<PortfolioT> portfolioTS;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -75,7 +79,7 @@ public class UserT implements UserDetails {
 
     @Override
     public String getUsername() {
-        return String.valueOf(userId);
+        return String.valueOf(userID);
     }
 
     @Override
